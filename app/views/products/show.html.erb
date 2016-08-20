@@ -1,0 +1,48 @@
+<html>
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<style>
+.container{
+  display: inline-block;
+}
+
+.btn-primary{
+  display: inline-block;
+}
+
+.btn-danger{
+  display: inline-block; 
+   
+}
+
+</style>
+<body>
+<table class = 'table table-bordered'>
+  <thead>
+     <th>Product Name</th>
+    <th>Description</th>
+  <th>Category</th>
+  <th>Price</th>
+  <th><a href = "/products/<%= @product.id %>/edit">Edit Product</a> </th>
+ </thead>
+<tbody>
+ <td><%= @product.name %></td>  
+  <td><%= @product.description %></td>
+  <td><%= @product.category %></td>
+  <td><%= @product.price%></td>
+<td> 
+
+<form action ='/products/<%= @product.id %>' method = "post">
+  <input type="hidden" name = "_method" value = "delete">
+  <input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token %>">
+  <input  type="submit" value="delete">
+  </form>
+</td>
+</tbody>
+</table>
+<a href='/products'>Back</a>
+</div>
+</body>
+</html>

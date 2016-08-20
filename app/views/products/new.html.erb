@@ -1,0 +1,55 @@
+<html> 
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<style>
+.row{
+	height: auto;
+	width: 400px;
+	margin:50px;
+}
+
+h1{
+	margin:50px;
+}
+
+.btn-primary{
+	margin-top:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1> New Product</h1> 
+
+<div class = 'row'>
+<div class = 'col-md-4'>
+<form action = "/products" method = "post"> 
+ <input type= "hidden" name="authenticity_token" value = "<%= form_authenticity_token %>">
+  <label>Product Name </label>
+<input type = "text" name= "product[name]">
+  <label>Description: </label>
+<textarea type = "text" name = "product[description]"> </textarea>
+
+<label>Category: </label>
+<select type = "select" name = "product[category]">
+  <option value = "Electronics">Electronics</option>
+  <option value = "Household">Household</option>
+  <option value = "Gardening">Gardening</option>
+  <option value = "Automotive">Automotive</option>
+  <option value = "Ninja/Other">Ninja/Other</option>
+</select>
+
+
+<label>Price: </label>
+<input type = "text" name = "product[price]"> 
+<input type= "submit" class = "btn btn-primary" value="Create Product"></input>
+</form> 
+
+<a href='/products'>Back</a>
+</div>
+</div>
+</body>
+</html>

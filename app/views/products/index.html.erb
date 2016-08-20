@@ -1,0 +1,51 @@
+<html>
+<head>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<style>
+.table{
+  	width: 800px;
+  	margin-left: 50px;
+  	margin-top: 50px;
+  }
+
+  h1{
+  	margin: 50px;
+  	display: inline-block;
+  }
+
+ 
+</style>
+
+</head>
+<body>
+
+<div id = "header">
+<h1>Product Listing</h1>
+<a class = "btn btn-primary" id="add" href = "/products/new">Add New Product</a>
+
+</div>
+
+<table class = "table table-bordered">
+<thead>  
+    <th>Product Name</th>
+    <th>Description</th>
+    <th>Category</th>
+    <th>Price</th>
+    <th>Profile</th>
+  </thead>
+<% @products.each do |p| %>
+<tbody>
+    <td><%= p.name %></td>
+	  <td><%= p.description %></td>
+	  <td><%= p.category %></td>
+    <td><%= p.price %></td>
+	  <td><a href="/products/<%= p.id %>">Show/Edit</a></td>
+<% end %>
+</tbody>
+</table>
+
+</body>
+</html>
+
+
